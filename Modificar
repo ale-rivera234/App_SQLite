@@ -1,0 +1,30 @@
+public void Registar(View view){
+	AdminSQLiteHelper admin= new AdminSQLiteOpenHelper(context this, name: "administracion", factory: null, version:1);
+	SQLiteDatabase BaseDeDatos= admin,getWritableDatabase();
+
+	String numero=
+	etNumero.getText().toString();
+	String nombre=
+	etNombre.getText().toString();
+	String Cantidad=
+	etNombre.getText().toString();
+
+	if(!numero.isEmpty()&& !nombre.isEmpty()&& !cantidad,isEmpty()){
+		ContentValues registro = new ContentValues();
+		registro.put("idp", numero);
+		registro.put("nombre", nombre);
+		registro.put("cantidad", cantidad);
+
+		int numRegistro=BaseDeDatos.update(table: "participantes", registro, whereClause:"idp ="+numero, whereArgs:null);
+
+		BaseDeDatos.close();
+
+		if(numRegistro ==1){
+
+		}else{
+			Toast.makeText(context: this, text "Participante no esta en el sistema!", Toast.LENGHT_SHORT).show();
+		}
+	}else{
+		Toast.makeText(context: this, text "Debes de poner todos los campos!", Toast.LENGHT_SHORT).show();
+	}
+}

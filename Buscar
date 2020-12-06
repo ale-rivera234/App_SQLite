@@ -1,0 +1,20 @@
+public void  Buscar(View view){
+	AdminSQLiteHelper admin= new AdminSQLiteOpenHelper(context this, name: "administracion", factory: null, version:1);
+	SQLiteDatabase BaseDeDatos= admin,getWritableDatabase();
+
+	String numero= etNumero.getText().toString();
+
+	if (!numero.isEmpty()){
+		Cursor fila= BaseDeDatos,rawQuery(sql:"select nombre, cantidad from participantes where idp="+ numero, seleccion");
+		if(fila.moveToFirst()){
+			etNombre.setText(fila.getString(i:0));
+			etCantidad.setText(fila.getString(i:1));
+			BaseDeDatos.close();
+
+		}else{
+			Toast.makeText(context: this, text "Participante no esta registrado!", Toast.LENGHT_SHORT).show();
+		}
+	}else{
+			Toast.makeText(context: this, text "Participante no esta registrado!", Toast.LENGHT_SHORT).show();
+		}
+	}

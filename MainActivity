@@ -1,0 +1,18 @@
+package com.example.mytanda;
+
+import...
+
+public class MainActivity extends AppCompatActivity{
+	
+	private EditText etNumero, etNombre, etCantidad;
+
+	@Override
+	proytected void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		etNumero=findViewById(R.id.etNumero);
+		etNombre=findViewById(R.id.etNombre);
+		etCantidad=findViewById(R.id.etCantidad);
+	}
+}

@@ -1,0 +1,24 @@
+
+public void Eliminar (View view){
+	AdminSQLiteHelper admin= new AdminSQLiteOpenHelper(context this, name: "administracion", factory: null, version:1);
+	SQLiteDatabase BaseDeDatos= admin,getWritableDatabase();
+
+	String numero= etNumero.getText().toString();
+
+	if (!numero.isEmpty()){
+		int numResgistro= BaseDeDatos.delete(table:"participantes", whereClause:"idp ="+numero, where: null);
+		BaseDeDatos.clos();
+
+		etCantidad.setText("");
+		etNombre.setText("");
+		etNumero.setText(""); 
+
+		if(numRegistro==1){
+			Toast.makeText(context: this, text "Participante borrado!", Toast.LENGHT_SHORT).show();
+		}else{
+			Toast.makeText(context: this, text "Participante no esta registrado!", Toast.LENGHT_SHORT).show();
+		}
+	}else{
+			Toast.makeText(context: this, text "Participante no esta registrado!", Toast.LENGHT_SHORT).show();
+		}
+}
